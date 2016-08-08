@@ -6,7 +6,10 @@
 			- um clone da tabela original (Necessário pois todos os tds da table é o que moldam suas dimensoes) para um elemento que apenas apresentará o header da listagem original
 			- na table original é escondido o header com margin negativo
 	*/
-	$.fn.headerFixed = function(){
+	$.fn.headerFixed = function(altura_original_content){
+		
+		$(this).closest('div').height(altura_original_content).css('overflow-y', 'auto');//seta a altura para o div container da table
+		
 		var headFixed = '<div id="headFixed"></div>';//elemento que receberá o header para estar fixo
 		$(headFixed).insertBefore($(this).closest('div'));//adicionando o elemento antes do container da listagem original
 		
