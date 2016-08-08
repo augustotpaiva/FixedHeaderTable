@@ -10,9 +10,10 @@ Desenvolvimento de um plugin que deixa o header da table fixo e o corpo com scro
 Instancie no jquery.load de sua página o plugin da seguinte forma:
 ```
   $(document).ready(function(){
-    $('#myTable').headerFixed();
+    $('#myTable').headerFixed(500);
   });
 ```
 
 Onde:
   - #MyTable é o ID de sua tabela
+  - 500 é a altura em pixels do elemento que conterá sua table
