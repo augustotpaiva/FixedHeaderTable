@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<head lang="pt-br">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Table Header Fixed - Example</title>
+
+    <!-- Needs jQuery to works -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="headerFixed.js"></script>
+    
+	<script>
+		$(document).ready(function(){
+			$('#myTable').headerFixed();
+		});
+	</script>
+    <style>
+		#listagem{
+			width:900px;
+			height:500px;
+			overflow:auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="listagem">
+	<table id="myTable" border="1">
+		<thead>
+            <tr>
+                <th>Acordo</th>
+                <th>CNPJ Pagto</th>
+                <th>Bandeira</th>
+                <th>Razão Social</th>
+                <th>Forma Pagamento</th>
+                <th>Qtd. Ações</th>
+                <th>Ações Executadas</th>
+                <th>Mês de Pagamento</th>
+                <th>Total Investimento</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>20856</td>
+                <td>10246418000137</td>
+                <td><p title="24705">COMERCIO DE MEDICAMENTOS VENTURA LTDA</p></td>
+                <td>COMERCIO DE MEDICAMENTOS VENTURA LTDA.</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>3</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 500,00</td>
+                <td class="td_status" ref="20856">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20855</td>
+                <td>05371910000102</td>
+                <td><p title="24723">LEONARDO BRITO</p></td>
+                <td>LEONARDO BRITO</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>3</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 1.200,00</td>
+                <td class="td_status" ref="20855">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20854</td>
+                <td>15998065000145</td>
+                <td><p title="23832">MAURO MOREIRA BARBOSA EPP</p></td>
+                <td>MAURO MOREIRA BARBOSA  EPP</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>0</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 0,00</td>
+                <td class="td_status" ref="20854">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20853</td>
+                <td>08686300000188</td>
+                <td><p title="4641">LM BRASIL COMERC MED</p></td>
+                <td>LM BRASIL COMERC MED</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>1</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 600,00</td>
+                <td class="td_status" ref="20853">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20852</td>
+                <td>13537459000170</td>
+                <td><p title="13705">2D XAVIER MEDICAMENTOS E PERFUMARIA LTDA</p></td>
+                <td>2D XAVIER MEDICAMENTOS E PERFUMARIA LTDA</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>1</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 150,00</td>
+                <td class="td_status" ref="20852">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20851</td>
+                <td>02062222000164</td>
+                <td><p title="942">SEONIO LUIZ LAUREANO</p></td>
+                <td>SEONIO LUIZ LAUREANO</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>1</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 240,00</td>
+                <td class="td_status" ref="20851">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20850</td>
+                <td>08882699000172</td>
+                <td><p title="4778">MENER MEDICAMENTOS E PERFUMARIA LTDA</p></td>
+                <td>MENER MEDICAMENTOS E PERFUMARIA LTDA</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>1</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 230,00</td>
+                <td class="td_status" ref="20850">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20849</td>
+                <td>17623583000100</td>
+                <td><p title="24843">DROGARIA VIEIRA VALESI EIRELI ME</p></td>
+                <td>DROGARIA VIEIRA VALESI EIRELI  ME</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>5</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 1.900,00</td>
+                <td class="td_status" ref="20849">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20848</td>
+                <td>61940292000137</td>
+                <td><p title="13079">GPA (F)</p></td>
+                <td>DISTRIBUIDORA DE MEDICAMENTOS SANTA CRUZ LTDA</td>
+                <td>DESCONTO EM TÍTULO</td>
+                <td>7</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 98.000,00</td>
+                <td class="td_status" ref="20848">
+                CRIADO
+                </td>
+            </tr>
+            <tr>
+                <td>20845</td>
+                <td>39346861000161</td>
+                <td><p title="13077">G BARBOSA (F)</p></td>
+                <td>CENCOSUD BRASIL COMERCIAL LTDA</td>
+                <td>DEPÓSITO EM CONTA</td>
+                <td>2</td>
+                <td>0,00 %</td>
+                <td>08/2016</td>
+                <td>R$ 1.850,00</td>
+                <td class="td_status" ref="20845">
+                CRIADO
+                </td>
+            </tr>
+		</tbody>
+	</table>
+    </div>
+</body>
+</html>
