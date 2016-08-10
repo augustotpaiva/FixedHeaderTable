@@ -45,7 +45,7 @@
 	/*
 		Além da funcionalidade do plugin acima, este tem o objetivo de fixar a primeira coluna também
 	*/
-	$.fn.headerAndFcolFixed = function(altura_original_content){
+	$.fn.headerAndFcolFixed = function(altura_original_content, fixedWidth){
 		$(this).closest('div').height(altura_original_content).css('overflow-y', 'auto');//seta a altura para o div container da table
 		
 		var MasterContainer = '<div id="MasterContainerTable"></div>';//elemento master container
@@ -79,7 +79,14 @@
 		$(this).css('margin-top', $(this).find('thead').height()*-1);//esconde o header da listagem original com margin top negativo
 		$(this).css('margin-left', larguraColFixed*-1);//esconde a primeira col da listagem original com margin left negativo
 		$('#colFixed table').css('margin-top', $(this).find('thead').height()*-1);//esconde o header da listagem original e da colfixed com margin top negativo
-		$(this).closest('div').width($(this).closest('div').width() - larguraColFixed);//subtraindo da listagem original a largura da colfixed
+		
+		//se o container original tem largura fixa ou é responsivo
+		// true		=> largura fixa
+		// false	=> reponsivo
+		if(fixedWidth){
+			$(this).closest('div').width($(this).closest('div').width() - larguraColFixed);//subtraindo da listagem original a largura da colfixed
+		}
+		
 		
 		//$('#headFixed, #colFixed').css('overflow', 'hidden');//esconde scrool
 		
