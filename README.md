@@ -23,6 +23,9 @@ Onde:
 Instancie no "document ready" de sua página o plugin da seguinte forma:
 ```
   $(document).ready(function(){
-    $('#myTable').headerAndFcolFixed(500);
+    $('#myTable').headerAndFcolFixed(500, false);
   });
 ```
+Onde:
+  - O segundo parâmetro (false) informa ao plugin que o DIV pai da sua table não tem largura fixa
+  - Defina True para que o plugin saiba trabalhar com sua table quando você usa uma largura fixa para o DIV pai
