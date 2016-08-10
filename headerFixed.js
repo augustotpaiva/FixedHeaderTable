@@ -62,6 +62,7 @@
 		
 		$('#headFixed, #colFixed').html($(this).clone());//elementos fixos recebem os clones
 		$('#headFixed').height($(this).find('thead').height()).width($(this).closest('div').width());//recebe altura do header
+		$('#headFixed').width($('#tableContainerFixed').width());//recebe largura do table contentainer
 		
 		
 		//calcula largura "correta" da coluna
