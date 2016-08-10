@@ -51,18 +51,18 @@
 		var MasterContainer = '<div id="MasterContainerTable"></div>';//elemento master container
 		$(MasterContainer).insertBefore($(this).closest('div'));//adicionando o elemento master container
 		
-		var colFixed			= '<div id="colFixed" style="float:left;"></div>';//elemento que receberá a primeira coluna para estar fixa
-		var headFixedContainer	= '<div id="tableContainerFixed"></div>';//elemento que receberá a table original e o header para estar fixo
+		var headFixed		= '<div id="headFixed"></div>';//elemento que receberá o header para estar fixo
+		var FixedContainer	= '<div id="tableContainerFixed"></div>';//elemento que receberá a table original e a coluna para estarem fixos
 		
-		$('#MasterContainerTable').html(colFixed+headFixedContainer);//criando colFixed e headFixedContainer dentro do MasterContainer
+		$('#MasterContainerTable').html(headFixed+FixedContainer);//criando headFixed dentro do MasterContainer
 		
-		$('#tableContainerFixed').html($(this).closest('div'));//movendo a table original para o tableContainerFixed
+		var colFixed		= '<div id="colFixed" style="float:left;"></div>';//elemento que receberá a primeira coluna para estar fixa
+		$('#tableContainerFixed').html(colFixed);//criando colFixed dentro do MasterContainer
+		$(this).closest('div').insertAfter('#colFixed');//Inserindo table original dentro do MasterContainer
 		
-		var headFixed	= '<div id="headFixed"></div>';//elemento que receberá o header para estar fixo
-		$(headFixed).insertBefore($(this).closest('div'));//adicionando o elemento antes do container da listagem original
+		$('#headFixed, #colFixed').html($(this).clone());//elementos fixos recebem os clones
+		$('#headFixed').height($(this).find('thead').height()).width($(this).closest('div').width());//recebe altura do header
 		
-		$('#headFixed,#colFixed').html($(this).clone());//elementos fixos recebem os clones
-		$('#headFixed').height($(this).find('thead').height());//recebe altura do header
 		
 		//calcula largura "correta" da coluna
 		var larguraColFixed = $(this).find('thead tr th').eq(0).width();
@@ -77,14 +77,10 @@
 		
 		$(this).css('margin-top', $(this).find('thead').height()*-1);//esconde o header da listagem original com margin top negativo
 		$(this).css('margin-left', larguraColFixed*-1);//esconde a primeira col da listagem original com margin left negativo
-		$('#headFixed table').css('margin-left', larguraColFixed*-1);//esconde a primeira col da listagem original com margin left negativo
+		$('#colFixed table').css('margin-top', $(this).find('thead').height()*-1);//esconde o header da listagem original e da colfixed com margin top negativo
+		$(this).closest('div').width($(this).closest('div').width() - larguraColFixed);//subtraindo da listagem original a largura da colfixed
 		
-		//calcula largura "original" da table
-		var larguraTableColFixed = $(this).width();
-		larguraTableColFixed += isNaN(parseInt($(this).css('border-width'))) ? 0 : parseInt($(this).css('border-width'))*2;//borda direita e esquerda (*2)
-		
-		$('#colFixed table').width(larguraTableColFixed);//forçando largura da table a ser igual a largura da tabela original
-		$('#headFixed').width($(this).closest('div').width());//recebe largura do container da listagem original
+		//$('#headFixed, #colFixed').css('overflow', 'hidden');//esconde scrool
 		
 		//se existe scroll na listagem original, coloca scroll no header fixo
 		//isso evita que as larguras e alturas das colunas se difiram
@@ -96,10 +92,6 @@
 			$('#headFixed').css('overflow', 'hidden');//esconde scrool
 		}
 		
-		
-		console.log($(this).width());
-		console.log($(this).closest('div').width());
-		
 		//se existe scroll na listagem original, coloca scroll na col fixa
 		//isso evita que as larguras e alturas das colunas se difiram
 		if($(this).width()-larguraColFixed > $(this).closest('div').width()){
@@ -109,7 +101,6 @@
 		else{
 			$('#colFixed').css('overflow', 'hidden');//esconde scrool
 		}
-
 		
 		//efetua scrool left no header
 		$(this).closest('div').on('scroll', function(){
@@ -128,3 +119,23 @@
 		});
 	}
 })(jQuery);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
